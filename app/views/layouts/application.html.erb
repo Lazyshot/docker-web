@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>DockerWeb</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<div class="container">
+  <div class="navbar">
+    <div class="navbar-inner">
+      <a href="/" class="brand">DockerWeb</a>
+      <% if current_user %>
+      <ul class="nav">
+        <li><a href="/apps">Apps</a></li>
+        <li><a href="/hosts">Hosts</a></li>
+      </ul>
+      <% end %>
+      <ul class="nav pull-right">
+        <% if current_user %>
+          <li><a href="/users"><%= current_user[:email] %></a></li>
+          <li><a href="/logout">Logout</a></li>
+        <% else %>
+          <li><a href="/register">Register</a></li>
+          <li><a href="/login">Login</a></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+  <div class="row-fluid">
+    <div class="span12">
+      <% flash.each do |name, msg| %>
+        <% if msg.is_a?(String) %>
+          <div class="alert alert-<%= name == :notice ? "success" : "error" %>">
+            <a class="close" data-dismiss="alert">&#215;</a>
+            <%= content_tag :div, msg, :id => "flash_#{name}" %>
+          </div>
+        <% end %>
+      <% end %>
+
+      <%= yield %>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

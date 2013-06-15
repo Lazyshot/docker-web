@@ -1,0 +1,22 @@
+<legend>Apps</legend>
+
+<div class="row-fluid">
+  <div class="span6 offset3">
+    <table class="table table-striped">
+      <thead>
+        <tr><th>Name</th></tr>
+      </thead>
+      <tbody>
+        <% @apps.each do |a| %>
+          <tr>
+            <td style="vertical-align:middle;"><%= a.name %></td>
+            <td style="text-align:right">
+              <a class="btn btn-mini" href="/apps/<%=a.id%>"><i class="icon-edit"></i></a>
+              <a class="btn btn-mini" href=""><i class="icon-remove"></i></a>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

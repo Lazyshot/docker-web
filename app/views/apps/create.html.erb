@@ -1,0 +1,15 @@
+<div class="row-fluid">
+  <div class="span6 offset3">
+    <legend>Create Application</legend>
+    <%= form_for @app, :url => :apps_create_post do |f| %>
+    <div>
+      <p>
+        <%= f.text_field :name, :placeholder => 'Name' %>
+      <p>
+      <p>
+        <input type="submit" class="btn btn-primary" />
+      </p>
+    </div>
+    <% end %>
+  </div>
+</div>

@@ -1,0 +1,21 @@
+<legend><%= @app.name %></legend>
+
+<div class="row-fluid">
+	<div class="span6 offset3">
+		<h3>Containers</h3>
+		<table class="table">
+			<tr>
+				<td>web</td>
+				<td style="text-align:right;">
+					<% unless @app.image.nil? %>
+					<button class="btn btn-mini"><i class="icon-minus"></i></button>
+					<%= @app.container.nil? ? 0 : @app.container.size %>
+					<button class="btn btn-mini"><i class="icon-plus"></i></button>
+					<% else %>
+					<span class="text-info">No code has been pushed</span>
+					<% end %>
+				</td>
+			</tr>
+		</table>
+	</div>
+</div>
