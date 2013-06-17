@@ -56,6 +56,7 @@ ActiveRecord::Schema.define(:version => 20130614142643) do
 
   create_table "users", :force => true do |t|
     t.string   "email"
+    t.boolean  "flag_admin"
     t.string   "crypted_password"
     t.string   "password_salt"
     t.string   "persistence_token"

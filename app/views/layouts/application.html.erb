@@ -14,7 +14,9 @@
       <% if current_user %>
       <ul class="nav">
         <li><a href="/apps">Apps</a></li>
+        <% if current_user.flag_admin %>
         <li><a href="/hosts">Hosts</a></li>
+        <% end %>
       </ul>
       <% end %>
       <ul class="nav pull-right">
