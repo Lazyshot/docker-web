@@ -4,6 +4,9 @@ class CreateContainers < ActiveRecord::Migration
       t.references :app
       t.references :host
 
+      t.string :cid
+      t.integer :port
+
       t.timestamps
     end
 

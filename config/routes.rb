@@ -2,8 +2,10 @@ DockerWeb::Application.routes.draw do
   root :to => "pages#index"
 
   match "hosts" => "hosts#index", :as => :hosts_index
-  match "hosts/add" => "hosts#add", :as => :hosts_add
-  match "hosts/remove" => "hosts#remove", :as => :hosts_remove
+  match "hosts/add" => "hosts#add", :as => :hosts_add, :via => :get
+  match "hosts/add" => "hosts#add_post", :as => :hosts_add_post, :via => :post
+  match "hosts/remove/:id" => "hosts#remove", :as => :hosts_remove
+  match "hosts/:id" => "hosts#get", :as => :hosts_get
 
   match "apps" => "apps#index", :as => :apps_index
   match "apps/create" => "apps#create", :as => :apps_create, :via => :get

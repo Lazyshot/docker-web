@@ -1,2 +1,20 @@
-<h1>Hosts#add</h1>
-<p>Find me in app/views/hosts/add.html.erb</p>
+<legend>Add Host</legend>
+
+<div class="row-fluid">
+  <div class="span6 offset3 text-center">
+    <%= form_for @host, :url => :hosts_add_post do |f| %>
+      <p>
+      <%= f.text_field :ip, :placeholder => "IP/Hostname" %>
+      :
+      <%= f.number_field :port, :placeholder => "Port", :size => 5 %>
+      <p>
+      <p>
+        <%= f.number_field :memory, :placeholder => "Memory (bytes)" %>
+        <%= f.number_field :vcpus, :placeholder => "CPU Cores" %>
+      </p>
+      <p>
+        <%= f.submit "Add", :class => "btn btn-primary" %>
+      </p>
+    <% end %>
+  </div>
+</div>

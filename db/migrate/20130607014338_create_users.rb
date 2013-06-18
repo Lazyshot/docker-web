@@ -5,6 +5,8 @@ class CreateUsers < ActiveRecord::Migration
 
       t.boolean :flag_admin
 
+      t.integer :max_containers, :default => 5
+
       t.string :crypted_password
       t.string :password_salt
       t.string :persistence_token

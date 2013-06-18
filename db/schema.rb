@@ -29,6 +29,8 @@ ActiveRecord::Schema.define(:version => 20130614142643) do
   create_table "containers", :force => true do |t|
     t.integer  "app_id"
     t.integer  "host_id"
+    t.string   "cid"
+    t.integer  "port"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
@@ -39,8 +41,10 @@ ActiveRecord::Schema.define(:version => 20130614142643) do
   create_table "hosts", :force => true do |t|
     t.string   "ip"
     t.integer  "port"
+
     t.integer  "memory"
     t.integer  "vcpus"
+
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
@@ -57,6 +61,7 @@ ActiveRecord::Schema.define(:version => 20130614142643) do
   create_table "users", :force => true do |t|
     t.string   "email"
     t.boolean  "flag_admin"
+    t.integer  "max_containers"
     t.string   "crypted_password"
     t.string   "password_salt"
     t.string   "persistence_token"

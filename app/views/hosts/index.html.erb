@@ -1,2 +1,29 @@
-<h1>Hosts#index</h1>
-<p>Find me in app/views/hosts/index.html.erb</p>
+<legend>
+  Hosts
+  <a href="/hosts/add" class="btn btn-primary pull-right"><i class='icon-plus'></i></a>
+</legend>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>IP</th>
+      <th>Port</th>
+      <th>Memory</th>
+      <th>Created Date</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @hosts.each do |host| %>
+    <tr>
+      <td><A href="/hosts/<%=host.id%>"><%=host.ip%></a></td>
+      <td><%=host.port%></td>
+      <td><%=host.memory%></td>
+      <td><%=host.created_at%></td>
+      <td><A href="/hosts/remove/<%= host.id%>" class="btn btn-mini"><i class="icon-remove"></i></a></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
+

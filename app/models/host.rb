@@ -1,14 +1,11 @@
-require "net/http"
-require "uri"
-require "json"
+require 'docker'
 
 class Host < ActiveRecord::Base
   has_many :container
-  attr_accessible :ip, :port
+  attr_accessible :ip, :port, :memory, :vcpus
 
   def currentContainers
-  	uri = URI.parse("http://" + self.ip + ":" + self.port + "/containers/json?all=1")
-  	response = Net::HTTP.get_response(uri)
-  	JSON.parse(response.body)
+    docker = Docker::API.new(base_url: "http://" + self.ip + ":" + self.port.to_s)
+    return docker.containers.list
   end
 end

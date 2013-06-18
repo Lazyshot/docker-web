@@ -1,0 +1,3 @@
+container:
+    memory: 536870912
+    cpu: 1024
